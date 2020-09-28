@@ -22,6 +22,9 @@ steps:
   inputs:
     command: 'install'
 - task: CmdLine@2
+  inputs:
+    script: pwd;'ls -ltr'
+- task: CmdLine@2
   displayName: "Run node modules node-sass"
   inputs:
     script: '''./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'''
