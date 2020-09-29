@@ -50,17 +50,20 @@ steps:
   inputs:
     script: 'echo $(Build.BuildId),$(Build.DefinitionName	),$(Build.BuildNumber)> "buildinfo.txt"'
 - task: DotNetCoreCLI@2
+  displayName: "running .netcore restore commands"
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
     feedsToUse: 'select'
 - task: DotNetCoreCLI@2
+  displayName: :'running .netcore build commands'
   inputs:
     command: 'build'
     projects: '**/*.csproj'
     arguments: '--no-restore --configuration Release'
 
 - task: DotNetCoreCLI@2
+  displayName: "running .netcore publish commands"
   inputs:
     command: 'publish'
     publishWebProjects: true
