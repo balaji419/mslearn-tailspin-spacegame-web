@@ -13,11 +13,16 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
+  dotnetcoreversion: '3.1.300'
 
 
 steps:
 
+- task: UseDotNet@2
+  displayName:  'choosing appropriate .net core version $(dotnetcoreversion)'
+  inputs:
+    packageType: 'sdk'
+    version: $(dotnetcoreversion)
 - task: Npm@1
   inputs:
     command: 'install'
