@@ -25,14 +25,14 @@ steps:
   inputs:
     script: |
       pwd
-      ls -ltr
-      ls -ltr ./node_modules
-      ls -ltr ./node_modules/.bin/node-sass
-      ls -ltr Tailspin.SpaceGame.Web/wwwroot
+
 - task: CmdLine@2
   displayName: "Run node modules node-sass"
   inputs:
-    script: '''./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'''
+    script: |
+      pwd
+      ls -ltr
+      ./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot
 - task: gulp@0
   inputs:
     gulpFile: 'gulpfile.js'
