@@ -27,7 +27,6 @@ steps:
       pwd
       ls -ltr
       ls -ltr ./node_modules
-      ls -ltr ./node_modules/.bin
       ls -ltr ./node_modules/.bin/node-sass
       ls -ltr Tailspin.SpaceGame.Web/wwwroot
 - task: CmdLine@2
