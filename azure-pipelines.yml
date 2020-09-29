@@ -23,7 +23,9 @@ steps:
     command: 'install'
 - task: CmdLine@2
   inputs:
-    script: pwd;'ls -ltr'
+    script: |
+      pwd
+      ls -ltr
 - task: CmdLine@2
   displayName: "Run node modules node-sass"
   inputs:
