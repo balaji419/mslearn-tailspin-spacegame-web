@@ -1,5 +1,6 @@
 parameters:
   bals_configuration: Release
+Steps:
 - task: DotNetCoreCLI@2
   displayName: :'running .netcore build commands'
   inputs:
