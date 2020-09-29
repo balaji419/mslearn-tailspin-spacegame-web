@@ -55,19 +55,13 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
     feedsToUse: 'select'
-- task: DotNetCoreCLI@2
-  displayName: :'running .netcore build commands'
-  inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-    arguments: '--no-restore --configuration Release'
-
-- task: DotNetCoreCLI@2
-  displayName: "running .netcore publish commands"
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+- template: templates/build.yml
+  parameters:
+    bals_configuration: Release
+- template: templates/build.yml
+  parameters:
+    bals_configuration: Debug
+    
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
