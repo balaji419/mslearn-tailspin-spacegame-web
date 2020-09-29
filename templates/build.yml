@@ -1,0 +1,16 @@
+parameters:
+  bals_configuration: Release
+- task: DotNetCoreCLI@2
+  displayName: :'running .netcore build commands'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--no-restore --configuration ${{ bals_configuration }}'
+
+- task: DotNetCoreCLI@2
+  displayName: "running .netcore publish commands"
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--no-build --configuration ${{ bals_configuration }} --output $(Build.ArtifactStagingDirectory)/Release'
+
