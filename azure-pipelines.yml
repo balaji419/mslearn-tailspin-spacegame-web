@@ -50,7 +50,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*.Tests.csproj'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
+    arguments: '--no-restore --configuration $(buildConfiguration) --logger trx'
     testRunTitle: 'bals_test'
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
