@@ -53,6 +53,12 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
+- task: DotNetCoreCLI@2
+  displayName: "Test"
+  inputs:
+    command: 'test'
+    arguments: '**/*.Tests.csproj'
+    testRunTitle: 'bals_test'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
