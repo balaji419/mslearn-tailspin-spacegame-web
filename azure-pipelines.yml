@@ -37,7 +37,8 @@ steps:
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
-
+- task: WhiteSource Bolt@20
+  displayName: "Whitesource bold source scan "
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
